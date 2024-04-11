@@ -22,3 +22,4 @@ if %errorlevel% neq 0 (
 
 rem Install the required packages
 pip install pytube
+pip install moviepy
