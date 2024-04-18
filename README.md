@@ -3,6 +3,8 @@ Hoi! Dit is een kleine en zeer simpele YouTube downloader die een video in .mp4 
 Dit zijn de instructies om mijn YouTube downloader te gebruiken:
 
 ## Installatie
+De .bat files werken momenteel **enkel voor Windows**, ik zal nog een bash versie maken voor Linux.
+
 0. Download de code van deze Github pagina of [klik op deze link](https://github.com/arthur-adriansens/YT-downloader/archive/refs/heads/main.zip).
 1. Pak (extract) deze zip-file uit.
 2. Klik op de "install.bat" file. Dit zal checken of alles geïnstalleerd is en zal de nodige dingen installeren.
