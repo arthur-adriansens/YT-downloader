@@ -9,7 +9,7 @@ def youtube_dl(link, mp3):
             "yt-dlp",
             "-x",
             "--audio-format", "mp3",
-            "-o", "videos/%(title)s.%(ext)s",
+            "-o", "exports/%(title)s.%(ext)s",
             link
         ])
     else:
@@ -17,7 +17,7 @@ def youtube_dl(link, mp3):
         subprocess.run([
             "yt-dlp",
             "-f", "best",
-            "-o", "videos/%(title)s.%(ext)s",
+            "-o", "exports/%(title)s.%(ext)s",
             link
         ])
 
