@@ -12,3 +12,12 @@ De .bat files werken momenteel **enkel voor Windows**, ik zal nog een bash versi
 
 ## Gebruik
 Als alles geïnstalleerd is, kan je een video downloaden door op de "download.bat" file te klikken en de gegeven instructies te volgen. De video's worden gedownload naar de /videos folder.
+
+## Developer note
+Als de clone niet verbonden is aan de repository, run je deze commands in de folder:
+
+```bash
+git init
+git remote add origin https://github.com/arthur-adriansens/YT-downloader
+git remote -v # check
+```

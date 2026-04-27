@@ -1,32 +1,25 @@
-from sys import argv as arguments
-import os
 
-from pytube import YouTube
-from moviepy.editor import *
+from sys import argv
+import subprocess
 
+def youtube_dl(link, mp3):
+    if mp3.lower() == "ja":
+        print("Downloading and converting to mp3...")
+        subprocess.run([
+            "yt-dlp",
+            "-x",
+            "--audio-format", "mp3",
+            "-o", "videos/%(title)s.%(ext)s",
+            link
+        ])
+    else:
+        print("Downloading video...")
+        subprocess.run([
+            "yt-dlp",
+            "-f", "best",
+            "-o", "videos/%(title)s.%(ext)s",
+            link
+        ])
 
-def Youtube_DL(link, mp3):
-	video = YouTube(link)
-	title = video.title
-
-	stream = video.streams.get_highest_resolution()
-
-	print(f'Downloading "{title}"...')
-	path = stream.download("videos")
-	print(f'Downloaded "{title}"!')
-
-	if mp3 == "ja":
-		print("")
-		print("Converting to mp3...")
-		video = VideoFileClip(path)
-		video.audio.write_audiofile(path.replace(".mp4", ".mp3"))
-		print("Converted to mp3!")
-
-		try:
-			os.remove(path)
-		except Exception:
-			print("De .mp3 is succesvol gemaakt, maar de .mp4/video is niet automatisch verwijderd. Dit is geen probleem en komt niet door mij, maar door Windows :). U kunt de .mp4/video gerust zelf verwijderen.")
-			pass
-
-Youtube_DL(arguments[1], arguments[2])
-# Youtube_DL("https://www.youtube.com/watch?v=YNVMdd6zMUE", "ja")
+if __name__ == "__main__":
+    youtube_dl(argv[1], argv[2])
