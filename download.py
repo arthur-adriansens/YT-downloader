@@ -69,7 +69,7 @@ def main():
         ).strip().lower()
 
         # Default to "ja" if user presses Enter
-        if mp3 == "":
+        if mp3 != "nee":
             mp3 = "ja"
 
         youtube_dl(link, mp3)
@@ -78,10 +78,10 @@ def main():
 
         again = input(
             f"{bcolors.OKBLUE}Wilt u nog iets exporteren? "
-            f"(ja = alles wissen en opnieuw/extra, nee = afsluiten) [ja]: {bcolors.ENDC}"
+            f"(ja = alles wissen en opnieuw/extra, nee = afsluiten) [nee]: {bcolors.ENDC}"
         ).strip().lower()
 
-        if again != "ja" and again != "":
+        if again != "ja":
             break
 
         clear_exports()
