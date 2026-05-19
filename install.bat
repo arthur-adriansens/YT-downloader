@@ -30,8 +30,18 @@ if %errorlevel% neq 0 (
     echo pip is already installed.
 )
 
-rem Install the required packages
-pip install -U yt-dlp
+rem Install the required packages (default dependency group, includes yt-dlp & yt-dlp-ejs)
+pip install -U "yt-dlp[default]"
+
+rem Check if Git is installed
+git --version >nul 2>&1
+if %errorlevel% neq 0 (
+    echo Git is not installed. Installing...
+    choco install git -y
+    echo Git has been installed.
+) else (
+    echo Git is already installed.
+)
 
 rem Check if ffmpeg is installed
 where ffmpeg >nul 2>&1

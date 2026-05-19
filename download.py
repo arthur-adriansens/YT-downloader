@@ -33,6 +33,7 @@ def youtube_dl(link, mp3):
             "--audio-format", "mp3",
             "--audio-quality", "0",
             "--add-metadata",
+            "--parse-metadata", "playlist_index:%(track_number)s",
             "--embed-metadata",
             "--embed-thumbnail",
             "--convert-thumbnails", "jpg",
