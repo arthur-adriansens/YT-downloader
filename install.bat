@@ -43,6 +43,17 @@ if %errorlevel% neq 0 (
     echo Git is already installed.
 )
 
+rem Check if deno is installed (js runtime)
+deno --version >nul 2>&1
+if %errorlevel% neq 0 (
+    echo Deno is not installed. Installing...
+    choco install deno
+    echo Deno has been installed.
+) else (
+    echo Deno is already installed.
+)
+
+
 rem Check if ffmpeg is installed
 where ffmpeg >nul 2>&1
 if %errorlevel% neq 0 (
